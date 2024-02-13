@@ -4,9 +4,9 @@ import os
 
 # ストップワードを定義します
 stopwords = {
-    "名詞": ["こと", "ん", "の", "みたい", "まま", "これ", "もの", "それ", "そう", "Ah"],
-    "動詞": ["し", "なっ", "てる", "い", "れ", "くれ", "でき", "られ", "られる", "ちゃう", "て", "せ", "いる"],
-    "形容詞": ["いい", "ない", "なく", "無く"],
+    "名詞": ["こと", "ん", "の", "みたい", "まま", "これ", "もの", "それ", "そう", "しない", "しよう", "さ", "なん", "よう"],
+    "動詞": ["し", "なっ", "てる", "い", "れ", "くれ", "でき", "られ", "られる", "ちゃう", "て", "せ", "いる", "ちゃっ", "さ"],
+    "形容詞": ["いい", "ない", "なく", "無く", "よ"],
     "副詞": [],
     "接続詞": [],
     "連体詞": [],
@@ -18,7 +18,7 @@ album_list = os.listdir("lyric")
 album_len = len(album_list)
 
 # アルバムごとの歌詞解析
-for i in range(6, 9):
+for i in range(5, 9):
     album_name = album_list[i]
     file_list = os.listdir("lyric//" + album_name)
     file_len = len(file_list)
@@ -69,6 +69,12 @@ for i in range(6, 9):
                 break
             surface, feature = line.split("\t")[:2]
             pos = feature.split(",")[0]
+            
+            # 動詞，形容詞の場合は終止形にする
+            if pos in ["動詞", "形容詞"]:
+                #print(surface)
+                surface = feature.split(",")[6]
+            
             if pos in ["名詞", "動詞", "副詞", "形容詞", "接続詞", "連体詞", "感動詞"]:
                 # ストップワードに含まれない場合にだけ追加します
                 if surface not in stopwords[pos]:
