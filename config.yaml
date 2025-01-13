@@ -1,0 +1,26 @@
+# config.yaml
+
+mecab_dict_path: "C:\\mecab-ipadic-neologd"  # 環境に合わせて変更
+album_dir: "album"
+output_excel: "frequency_analysis.xlsx"
+output_csv: "frequency_analysis.csv"
+stopwords:
+  名詞: ["こと", "ん", "の", "みたい", "まま", "これ", "もの", "それ", "そう", "しない", "しよう", "さ", "なん", "よう", "ため", "ら"]
+  動詞: ["し", "なっ", "てる", "い", "れ", "くれ", "でき", "られ", "られる", "ちゃう", "て", "せ", "いる", "ちゃっ", "さ", "する", "なる", "ある", "できる", "れる", "やる", "いく", "く", "せる", "くる", "みる"]
+  形容詞: ["いい", "ない", "なく", "無く", "よ"]
+  副詞: []
+  接続詞: []
+  連体詞: []
+  感動詞: []
+pos_list:
+  - 名詞
+  - 動詞
+  - 副詞
+  - 形容詞
+  - 接続詞
+  - 連体詞
+  - 感動詞
+output_formats:
+  - excel
+  - csv
+log_file: "rename_log.log"

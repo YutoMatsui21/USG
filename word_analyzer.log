@@ -1,0 +1,90 @@
+2025-01-09 23:18:57,020 - ERROR - MeCabの初期化に失敗しました: 
+----------------------------------------------------------
+
+Failed initializing MeCab. Please see the README for possible solutions:
+
+    https://github.com/SamuraiT/mecab-python3#common-issues
+
+If you are still having trouble, please file an issue here, and include the
+ERROR DETAILS below:
+
+    https://github.com/SamuraiT/mecab-python3/issues
+
+issueを英語で書く必要はありません。
+
+------------------- ERROR DETAILS ------------------------
+arguments: -d "C:\Users\y0u5t\Desktop\USG\mecab-ipadic-neologd"
+[ifs] no such file or directory: C:\Users\y0u5t\Desktop\USG\mecab-ipadic-neologd\dicrc
+----------------------------------------------------------
+
+2025-01-09 23:21:14,032 - ERROR - MeCabの初期化に失敗しました: 
+----------------------------------------------------------
+
+Failed initializing MeCab. Please see the README for possible solutions:
+
+    https://github.com/SamuraiT/mecab-python3#common-issues
+
+If you are still having trouble, please file an issue here, and include the
+ERROR DETAILS below:
+
+    https://github.com/SamuraiT/mecab-python3/issues
+
+issueを英語で書く必要はありません。
+
+------------------- ERROR DETAILS ------------------------
+arguments: -d "C:\Users\y0u5t\Desktop\USG\mecab-ipadic-neologd"
+[ifs] no such file or directory: C:\Users\y0u5t\Desktop\USG\mecab-ipadic-neologd\dicrc
+----------------------------------------------------------
+
+2025-01-09 23:22:31,932 - ERROR - MeCabの初期化に失敗しました: 
+----------------------------------------------------------
+
+Failed initializing MeCab. Please see the README for possible solutions:
+
+    https://github.com/SamuraiT/mecab-python3#common-issues
+
+If you are still having trouble, please file an issue here, and include the
+ERROR DETAILS below:
+
+    https://github.com/SamuraiT/mecab-python3/issues
+
+issueを英語で書く必要はありません。
+
+------------------- ERROR DETAILS ------------------------
+arguments: -d "C:\Users\y0u5t\Desktop\USG\mecab-ipadic-neologd"
+[ifs] no such file or directory: C:\Users\y0u5t\Desktop\USG\mecab-ipadic-neologd\dicrc
+----------------------------------------------------------
+
+2025-01-09 23:24:12,367 - ERROR - 設定ファイルの解析中にエラーが発生しました: while scanning a double-quoted scalar
+  in "config.yaml", line 3, column 18
+found unknown escape character 'm'
+  in "config.yaml", line 3, column 22
+2025-01-09 23:25:19,152 - INFO - 分析結果がExcelファイルに保存されました: frequency_analysis.xlsx
+2025-01-09 23:25:19,240 - INFO - Frequency 分析結果がCSVファイルに保存されました: Frequency_analysis.csv
+2025-01-09 23:25:19,300 - INFO - File_Appearance 分析結果がCSVファイルに保存されました: File_Appearance_analysis.csv
+2025-01-09 23:25:19,381 - INFO - Frequency 分析結果がCSVファイルに保存されました: Frequency_analysis.csv
+2025-01-09 23:25:19,438 - INFO - File_Appearance 分析結果がCSVファイルに保存されました: File_Appearance_analysis.csv
+2025-01-09 23:30:04,196 - INFO - 分析結果がExcelファイルに保存されました: frequency_analysis.xlsx
+2025-01-09 23:30:04,324 - INFO - Frequency 分析結果がCSVファイルに保存されました: Frequency_Analysis.csv
+2025-01-09 23:30:04,389 - INFO - File_Appearance 分析結果がCSVファイルに保存されました: File_Appearance_Analysis.csv
+2025-01-09 23:40:50,317 - INFO - 分析結果がExcelファイルに保存されました: frequency_analysis.xlsx
+2025-01-09 23:40:50,408 - INFO - Frequency 分析結果がCSVファイルに保存されました: Frequency_Analysis.csv
+2025-01-09 23:40:50,474 - INFO - File_Appearance 分析結果がCSVファイルに保存されました: File_Appearance_Analysis.csv
+2025-01-09 23:44:55,980 - INFO - 分析結果がExcelファイルに保存されました: frequency_analysis.xlsx
+2025-01-09 23:44:56,052 - INFO - Frequency 分析結果がCSVファイルに保存されました: Frequency_Analysis.csv
+2025-01-09 23:44:56,149 - INFO - File_Appearance 分析結果がCSVファイルに保存されました: File_Appearance_Analysis.csv
+2025-01-09 23:48:11,742 - INFO - 分析結果がExcelファイルに保存されました: frequency_analysis.xlsx
+2025-01-09 23:48:11,753 - INFO - Frequency 分析結果がCSVファイルに保存されました: frequency_analysis.csv
+2025-01-09 23:48:11,756 - INFO - File_Appearance 分析結果がCSVファイルに保存されました: File_Appearance_Analysis.csv
+2025-01-09 23:51:11,277 - INFO - 分析結果がExcelファイルに保存されました: frequency_analysis.xlsx
+2025-01-09 23:51:11,287 - INFO - Frequency 分析結果がCSVファイルに保存されました: frequency_analysis.csv
+2025-01-09 23:51:11,290 - INFO - File_Appearance 分析結果がCSVファイルに保存されました: File_Appearance_Analysis.csv
+2025-01-09 23:52:03,771 - INFO - 分析結果がExcelファイルに保存されました: frequency_analysis.xlsx
+2025-01-09 23:52:03,841 - INFO - Frequency 分析結果がCSVファイルに保存されました: Frequency_Analysis.csv
+2025-01-09 23:52:03,898 - INFO - File_Appearance 分析結果がCSVファイルに保存されました: File_Appearance_Analysis.csv
+2025-01-12 12:02:59,092 - INFO - 分析結果がExcelファイルに保存されました: frequency_analysis.xlsx
+2025-01-12 12:02:59,171 - INFO - Frequency 分析結果がCSVファイルに保存されました: Frequency_Analysis.csv
+2025-01-12 12:02:59,227 - INFO - File_Appearance 分析結果がCSVファイルに保存されました: File_Appearance_Analysis.csv
+2025-01-13 20:20:42,349 - INFO - 分析結果がExcelファイルに保存されました: frequency_analysis.xlsx
+2025-01-13 20:20:42,427 - INFO - Frequency 分析結果がCSVファイルに保存されました: Frequency_Analysis.csv
+2025-01-13 20:20:42,485 - INFO - File_Appearance 分析結果がCSVファイルに保存されました: File_Appearance_Analysis.csv
