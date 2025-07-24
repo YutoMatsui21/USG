@@ -29,14 +29,10 @@ soup = BeautifulSoup(response.text, "html.parser")
 # 画像のURLを抽出してリストに格納
 image_urls = []
 for img in soup.find_all("img", class_="mimg"):
-    #print(img.attrs) # キーと値の辞書として表示される
-    for attr in img.attrs:
-        if attr == "src":
-        	image_url = img["src"]
-        elif attr == "data-src":
-          	image_url = img["data-src"]
-        
-    image_urls.append(image_url)
+    # src 属性か data-src 属性から画像URLを取得
+    image_url = img.get("src") or img.get("data-src")
+    if image_url:
+        image_urls.append(image_url)
 
 # リストから画像のURLを取り出してダウンロード
 count = 0
