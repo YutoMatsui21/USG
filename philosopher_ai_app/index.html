@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>哲学者AI相談室 プロトタイプ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+      background: #f6f5f3;
+      color: #1f1f1f;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 24px 60px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 32px;
+      letter-spacing: 0.04em;
+    }
+
+    p.lead {
+      margin: 0;
+      color: #4a4a4a;
+      line-height: 1.6;
+    }
+
+    .panel {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+      margin-bottom: 28px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: minmax(200px, 1fr) 2fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #d8d7d4;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 16px;
+      background: #fbfbfa;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 16px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 999px;
+      border: none;
+      background: #3b4c73;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(59, 76, 115, 0.3);
+    }
+
+    .chat {
+      display: grid;
+      gap: 16px;
+    }
+
+    .bubble {
+      padding: 16px 18px;
+      border-radius: 16px;
+      line-height: 1.6;
+      background: #f0f1f5;
+      border: 1px solid #e1e2e8;
+    }
+
+    .bubble.user {
+      background: #e8f0ff;
+      border-color: #d0dcf5;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #646464;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      color: #777;
+      font-size: 13px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 720px) {
+      .controls {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>哲学者AI相談室</h1>
+      <p class="lead">
+        哲学者の思想をインスパイアしたAIが、悩みに対して語りかけるプロトタイプです。
+        哲学者を選んで、いまの悩みや相談ごとを入力してください。
+      </p>
+    </header>
+
+    <section class="panel">
+      <div class="controls">
+        <div>
+          <label for="philosopher">相談する哲学者</label>
+          <select id="philosopher">
+            <option value="aristotle">アリストテレス</option>
+            <option value="kant">カント</option>
+            <option value="nietzsche">ニーチェ</option>
+            <option value="descartes">デカルト</option>
+          </select>
+        </div>
+        <div>
+          <label for="question">あなたの悩み</label>
+          <textarea id="question" placeholder="例: 仕事のやりがいが見つからず迷っています。"></textarea>
+          <button id="ask">哲学者に相談する</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="chat" id="chat">
+        <div class="bubble user">
+          <div class="meta">あなたの悩み</div>
+          <div>ここに入力した内容が表示されます。</div>
+        </div>
+        <div class="bubble">
+          <div class="meta">哲学者AIの回答</div>
+          <div>哲学者の口調で回答が返ります。</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      ※このプロトタイプは静的なデモです。実際のLLM接続時はAPI連携に置き換えられます。
+    </footer>
+  </div>
+
+  <script>
+    const philosopherProfiles = {
+      aristotle: {
+        name: "アリストテレス",
+        voice: "観察と実践を重んじ、徳と中庸を語る語り口",
+        responseTemplate: (question) =>
+          `あらゆる営みには目的があります。いま感じている迷いは、あなたが何を善い目的としているのかが揺らいでいる合図です。\n` +
+          `まずは日々の行為を観察し、あなたにとっての『良き習慣』が何かを見つけましょう。\n` +
+          `具体的に言えば「${question}」という状況に対して、今日一つだけ実践できる小さな徳を定めてください。`,
+      },
+      kant: {
+        name: "カント",
+        voice: "理性と義務を強調し、内なる法則に従う語り口",
+        responseTemplate: (question) =>
+          `あなたの悩みは、理性が求める普遍的な行為と、感情が求める快楽のせめぎ合いに見えます。\n` +
+          `「${question}」に向き合うとき、あなたの選択が他者も従える普遍的な法則として成立するかを問い直してください。\n` +
+          `自ら立てた規律があなたを自由にします。`,
+      },
+      nietzsche: {
+        name: "ニーチェ",
+        voice: "力強く挑発的に、生の肯定を促す語り口",
+        responseTemplate: (question) =>
+          `悩みは、あなたがまだ自分の力を試す舞台に立っていない証だ。\n` +
+          `「${question}」という状況は、あなたに旧い価値を超えて新しい価値を創造せよと迫っている。\n` +
+          `恐れるな。あなた自身が意味を与える者となれ。`,
+      },
+      descartes: {
+        name: "デカルト",
+        voice: "懐疑と明晰さを重視し、順序立てて考える語り口",
+        responseTemplate: (question) =>
+          `まずは疑うことから始めましょう。「${question}」という悩みの中で、確かなものは何でしょうか。\n` +
+          `感情を一度棚上げし、事実と推論を分けて考えてください。\n` +
+          `明晰で判明な考えに到達すれば、次の一手が見えてきます。`,
+      },
+    };
+
+    const philosopherSelect = document.getElementById("philosopher");
+    const questionInput = document.getElementById("question");
+    const askButton = document.getElementById("ask");
+    const chat = document.getElementById("chat");
+
+    const renderChat = (question, answer, philosopherName, voice) => {
+      chat.innerHTML = `
+        <div class="bubble user">
+          <div class="meta">あなたの悩み</div>
+          <div>${question}</div>
+        </div>
+        <div class="bubble">
+          <div class="meta">${philosopherName}（${voice}）</div>
+          <div>${answer.replace(/\n/g, "<br>")}</div>
+        </div>
+      `;
+    };
+
+    askButton.addEventListener("click", () => {
+      const question = questionInput.value.trim();
+      if (!question) {
+        alert("悩みを入力してください。");
+        return;
+      }
+
+      const philosopher = philosopherProfiles[philosopherSelect.value];
+      const answer = philosopher.responseTemplate(question);
+      renderChat(question, answer, philosopher.name, philosopher.voice);
+    });
+  </script>
+</body>
+</html>
